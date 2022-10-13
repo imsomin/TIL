@@ -1,1 +1,48 @@
 <Computer Science 개념 공부>
+
+[10.13]
+1. 컨테이너
+- 클라이언트의 요청에 따른 리소스를 찾고 자바 코드를 html 코드로 변환하여 응답 및 전송해주는 임무 수행
+ ex)Tomcat8.5
+
+
+2. 통합 개발 환경(IDE)
+- 코드를 작성하고 빌드해줄 수 있는 툴
+ ex)이클립스
+
+
+3. 컴파일
+- 작성한 소스 코드(.java)는 자바 컴파일러의 컴파일 과정을 통해 자바가상머신(JVM)이 
+  인식할 수 있는 바이트 코드를 생성해내고, 이렇게 만들어진 파일(.class)을 자바런처가 
+  execute(실행)하게 된다.
+
+
+4. 서블릿과 JSP 비교
+- Servelt : 자바 코드에 html 삽입(용도 : 처리)
+  + 서블릿 파일은 HttpServletRequest객체를 이용하여, Parameter값을 얻음.
+  + 파라미터 이외에는 데이터 전송과 관련한 다른 선택 가능한 수단이 없다. 파라미터는 곧 주소다.
+- JSP : html 내에 자바 코드 삽입(용도 : 출력)
+
+
+5. 데이터 전송 : Servlet -> JSP
+-애트리뷰트(attribute)를 이용한다. 이 과정에서 파라미터는 잘 사용되지 않는다.
+-전송
+  request.setAttribute("속성명", 데이터); 
+  session.setAttribute("속성명", 데이터)
+-처리
+  (변경할 타입명)request.getAttribute("속성명");
+  (변경할 타입명)session.getAttribute("속성명");
+
+
+6. 패턴 Pattern
+-FrontController 패턴 :여러 개의 요청을 하나의 Servlet 이 처리
+
+-Model 1 패턴 :일반적으로 모든 코드를 JSP에 작성
+
+-Model 2 패턴 :출력은 JSP가 수행하고, 처리는 Servlet이 수행
+ 유지보수가 쉽지만, 구조가 복잡함, 대규모 프로젝트에 이용
+
+-MVC 패턴 : 데이터를 만드는 부분(model)과 데이터를 출력하는 부분(view) 및 
+ 연결하는 부분(Controller)을 별도의 객체로 처리함
+ 이 모든 과정은 독립성을 갖도록 해서 유지보수를 용이하게 하기 위함임
+ 보통 Model2 MVC 패턴을 만든다.
